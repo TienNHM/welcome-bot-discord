@@ -20,7 +20,8 @@ class MyClient(discord.Client):
                 "```\n" + \
                 "Họ tên - MSSV - Lớp \n" + \
                 "``` \n" + \
-                "👉 Sau đó, nhớ điền form: https://tinyurl.com/Discord-K21-FITUTE để được set role nhé. \n " 
+                "👉 Sau đó, nhớ điền form: https://tinyurl.com/Discord-K21-FITUTE để được set role nhé. \n " + \
+                "💥 Và đừng quên đọc nội quy tại đây:"
                 
             msg = msg if MESSAGE is None else MESSAGE
             embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
@@ -31,8 +32,7 @@ class MyClient(discord.Client):
             # embed.add_field(name="Server Region", value=f"{guild.region}")
             # embed.add_field(name="Server ID", value=f"{guild.id}")
             embed.set_author(name=member.name, icon_url=member.avatar_url)
-            embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg}")
-            embed.add_field(name="Lưu ý", value=f"Đừng quên đọc <#{CHANNEL_ID}> nhé!")
+            embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
             embed.set_thumbnail(url=THUMBNAIL)
 
             await guild.system_channel.send(embed=embed)
