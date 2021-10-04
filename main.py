@@ -14,7 +14,8 @@ class MyClient(discord.Client):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
 
     async def on_member_join(self, member):
-        guild = member.guild
+        # guild = member.guild 
+        guild = member.create_dm()
         if guild.system_channel is not None:
             msg = f"🥰 Để có thể truy cập vào tất cả các channel của discord, các bạn vui lòng đổi biệt danh theo định dạng:\n" + \
                 "```\n" + \
@@ -26,18 +27,12 @@ class MyClient(discord.Client):
             msg = msg if MESSAGE is None else MESSAGE
             embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
                                   color=discord.Color.blue())
-            # embed.add_field(name="Server created at",
-            #                 value=f"{guild.created_at}")
-            # embed.add_field(name="Server Owner", value=f"{guild.owner}")
-            # embed.add_field(name="Server Region", value=f"{guild.region}")
-            # embed.add_field(name="Server ID", value=f"{guild.id}")
             embed.set_author(name=member.name, icon_url=member.avatar_url)
             embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
             embed.set_thumbnail(url=THUMBNAIL)
 
-            await guild.system_channel.send(embed=embed)
-
-            # await guild.system_channel.send(to_send)
+            await guild.send(embed=embed)
+            # await guild.system_channel.send(embed=embed)
 
 
 intents = discord.Intents.default()
