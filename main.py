@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+MESSAGE = os.getenv('MESSAGE')
 
 class MyClient(discord.Client):
     async def on_ready(self):
@@ -19,6 +20,7 @@ class MyClient(discord.Client):
                 "``` \n" + \
                 "👉 Sau đó, nhớ điền form: https://tinyurl.com/Discord-K21-FITUTE để được set role nhé. \n " + \
                 "💥 Và đặc biệt, đừng quên đọc <#887981459749609492> nà."
+            msg = msg if MESSAGE is None else MESSAGE
             embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
                                   color=discord.Color.blue())
             # embed.add_field(name="Server created at",
@@ -27,7 +29,7 @@ class MyClient(discord.Client):
             # embed.add_field(name="Server Region", value=f"{guild.region}")
             # embed.add_field(name="Server ID", value=f"{guild.id}")
             embed.set_author(name=member.name, icon_url=member.avatar_url)
-            embed.add_field(name="📌📌📌", value=f"💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg}")
+            embed.add_field(name="\n", value=f"💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg}")
             embed.set_thumbnail(
                 url=f"https://img.icons8.com/color/48/000000/commercial.png")
 
