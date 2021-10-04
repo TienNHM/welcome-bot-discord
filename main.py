@@ -29,7 +29,7 @@ class MyClient(discord.Client):
             # embed.add_field(name="Server Region", value=f"{guild.region}")
             # embed.add_field(name="Server ID", value=f"{guild.id}")
             embed.set_author(name=member.name, icon_url=member.avatar_url)
-            embed.add_field(name="\n", value=f"💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg}")
+            embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg}")
             embed.set_thumbnail(
                 url=f"https://img.icons8.com/color/48/000000/commercial.png")
 
