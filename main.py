@@ -16,9 +16,8 @@ class MyClient(discord.Client):
         print(f'Logged in as {self.user} (ID: {self.user.id})')
 
     async def on_member_join(self, member):
-        await member.create_dm()
-        
         #### WELCOME
+        await member.create_dm()
         msg = f"🥰 Để có thể truy cập vào tất cả các channel của discord, các bạn vui lòng đổi biệt danh theo định dạng:\n" + \
             "```\n" + \
             "Họ tên - MSSV - Lớp \n" + \
@@ -34,6 +33,7 @@ class MyClient(discord.Client):
         await member.dm_channel.send(embed=embed)
         
         #### RULES
+        await member.create_dm()
         rule = discord.Embed(timestamp=datetime.datetime.utcnow(),
                                 color=discord.Color.red())
         rule.add_field(name="📌 Nội quy", value=RULES)
