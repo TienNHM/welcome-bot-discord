@@ -28,7 +28,7 @@ class MyClient(discord.Client):
             embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
                                   color=discord.Color.blue())
             # embed.set_author(name=member.recipient, icon_url=member.avatar_url)
-            embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
+            embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {member.guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
             embed.set_thumbnail(url=THUMBNAIL)
 
             await guild.send(embed=embed)
