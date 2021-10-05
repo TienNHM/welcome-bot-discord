@@ -15,24 +15,24 @@ class MyClient(discord.Client):
 
     async def on_member_join(self, member):
         # guild = member.guild 
-        guild = member.create_dm()
-        if guild is not None:
-            msg = f"🥰 Để có thể truy cập vào tất cả các channel của discord, các bạn vui lòng đổi biệt danh theo định dạng:\n" + \
-                "```\n" + \
-                "Họ tên - MSSV - Lớp \n" + \
-                "``` \n" + \
-                "👉 Sau đó, nhớ điền form: https://tinyurl.com/Discord-K21-FITUTE để được set role nhé. \n " + \
-                "💥 Và đừng quên đọc nội quy tại đây:"
-                
-            msg = msg if MESSAGE is None else MESSAGE
-            embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
-                                  color=discord.Color.blue())
-            # embed.set_author(name=member.recipient, icon_url=member.avatar_url)
-            embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {member.guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
-            embed.set_thumbnail(url=THUMBNAIL)
+        await member.create_dm()
+        
+        msg = f"🥰 Để có thể truy cập vào tất cả các channel của discord, các bạn vui lòng đổi biệt danh theo định dạng:\n" + \
+            "```\n" + \
+            "Họ tên - MSSV - Lớp \n" + \
+            "``` \n" + \
+            "👉 Sau đó, nhớ điền form: https://tinyurl.com/Discord-K21-FITUTE để được set role nhé. \n " + \
+            "💥 Và đừng quên đọc nội quy tại đây:"
+            
+        msg = msg if MESSAGE is None else MESSAGE
+        embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
+                                color=discord.Color.blue())
+        # embed.set_author(name=member.recipient, icon_url=member.avatar_url)
+        embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {member.guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
+        embed.set_thumbnail(url=THUMBNAIL)
 
-            await guild.send(embed=embed)
-            # await guild.system_channel.send(embed=embed)
+        await member.dm_channel.send(embed=embed)
+        # await guild.system_channel.send(embed=embed)
 
 
 intents = discord.Intents.default()
