@@ -16,7 +16,7 @@ class MyClient(discord.Client):
     async def on_member_join(self, member):
         # guild = member.guild 
         guild = member.create_dm()
-        if guild.system_channel is not None:
+        if guild is not None:
             msg = f"🥰 Để có thể truy cập vào tất cả các channel của discord, các bạn vui lòng đổi biệt danh theo định dạng:\n" + \
                 "```\n" + \
                 "Họ tên - MSSV - Lớp \n" + \
