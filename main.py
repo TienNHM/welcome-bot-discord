@@ -27,7 +27,7 @@ class MyClient(discord.Client):
             msg = msg if MESSAGE is None else MESSAGE
             embed = discord.Embed(timestamp=datetime.datetime.utcnow(),
                                   color=discord.Color.blue())
-            embed.set_author(name=member.name, icon_url=member.avatar_url)
+            # embed.set_author(name=member.recipient, icon_url=member.avatar_url)
             embed.add_field(name="🌟🌟🌟", value=f"\n💥 Chào mừng {member.mention} đến với Server {guild.name} nhé! \n\n{msg} <#{CHANNEL_ID}>")
             embed.set_thumbnail(url=THUMBNAIL)
 
